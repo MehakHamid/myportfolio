@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1a1ae9a70a.js" crossorigin="anonymous"></script>
+    <title>My Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1><span>Mehak</span> Hamid</h1>
+        </div>
+        <div class="navbar">
+            <nav>
+                <a href="./index.html">Home</a>
+                <a href="./about.html">About</a>
+                <a href="./experience.html">Expereience</a>
+                <a href="./project.html">Projects</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+    </header>
+    
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" name="name" placeholder="Enter Your Name" required>
+          
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Enter Your Email" required>
+          
+            <label for="phone">Contact Number:</label>
+            <input type="tel" name="phone" placeholder="Enter Your Contact Number" required>
+          
+            <label for="subject">Message:</label>
+            <textarea name="message" placeholder="Message" required></textarea>
+          
+            <input type="submit" value="Submit">
+          </form>
+     </section>
+       
+    </section>
+    <footer>
+        &copy; 2024 My Portfolio Website. All rights reserved.
+    </footer>
+
+    <script src="script.js"></script> <!-- Link to the JavaScript file -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+    <script>
+        (function() {
+          emailjs.init("8Rh1NjDZBC5ZgppVa"); // Replace with your EmailJS Public Key
+        })();
+      
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent the form from submitting the traditional way
+      
+          emailjs.sendForm('service_m63nitd', 'template_485udmr', this)
+            .then(function() {
+              alert('Email sent successfully!');
+            }, function(error) {
+              alert('Oops! Something went wrong... ' + JSON.stringify(error));
+            });
+        });
+      </script>
+
+
+</body>
+
+</html>
